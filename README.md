@@ -18,3 +18,31 @@ Visa Platinum 7000792289606361 → Visa Platinum 7000 79** **** 6361
 Для получения дополнительной информации обратитесь к документации.
 #### 5️⃣ Лицензия.
 Этот проект лицензирован по [лицензии MIT](https://github.com/ryo-ma/github-profile-trophy/blob/master/LICENSE).
+
+### Установка
+
+1.  Клонируйте репозиторий:
+    ```bash
+    git clone https://github.com/ваш_логин/bank_operations_widget.git
+    cd bank_operations_widget
+    ```
+2.  (Рекомендуется) Создайте и активируйте виртуальное окружение:
+    ```bash
+    # Для Unix/macOS
+    python3 -m venv venv
+    source venv/bin/activate
+
+    # Для Windows (PowerShell)
+    python -m venv venv
+    .\venv\Scripts\Activate.ps1
+    # Или для командной строки Windows
+    venv\Scripts\activate.bat
+    ```
+3.  Установите зависимости (если будут):
+    ```bash
+    pip install -r requirements.txt # (если файл requirements.txt существует)
+    ```
+
+### Использование
+
+Функции находятся в модуле `src.processing.operations`.
