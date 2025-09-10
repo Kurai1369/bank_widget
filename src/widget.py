@@ -42,7 +42,7 @@ def get_date(date_string: str) -> str:
     :param date_string: Строка с датой в формате ISO
     :return: Строка с датой в формате ДД.ММ.ГГГГ
     """
-    from datetime import datetime # daytime встроенный модуль Python для работы с датами
+    from datetime import datetime  # daytime встроенный модуль Python для работы с датами
 
-    dt = datetime.fromisoformat(date_string) # превращает строку в объект даты
-    return dt.strftime("%d.%m.%Y") # превращает объект даты обратно в строку
+    dt = datetime.fromisoformat(date_string)  # превращает строку в объект даты
+    return dt.strftime("%d.%m.%Y")  # превращает объект даты обратно в строку
