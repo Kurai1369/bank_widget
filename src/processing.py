@@ -19,7 +19,7 @@ def filter_by_state(operations: List[Dict[str, Any]], state: str = "EXECUTED") -
     return [op for op in operations if op.get("state") == state]
 
 
-def sort_by_date(operations: List[Dict[str, Any]], descending: bool = True) -> List[Dict[str, Any]]:
+def sort_by_date(operations: List[Dict[str, Any]], reverse: bool = True) -> List[Dict[str, Any]]:
     """
     Сортирует список операций по дате.
 
@@ -33,4 +33,4 @@ def sort_by_date(operations: List[Dict[str, Any]], descending: bool = True) -> L
     Returns:
         List: Новый список словарей, отсортированный по дате.
     """
-    return sorted(operations, key=lambda x: x["date"], reverse=descending)
+    return sorted(operations, key=lambda x: x["date"], reverse=reverse)
