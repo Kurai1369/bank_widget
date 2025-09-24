@@ -9,13 +9,21 @@
 ```
 bank_widget/
 ├── src/
+│ ├── __init__.py
+│ ├── generators.py
 │ ├── masks.py
-│ ├── widget.py
-│ └── generators.py
+│ ├── processint.py
+│ └── widget.py
 ├── tests/
+│ ├── __init__.py
+│ ├── conftest.py
+│ ├── test_generators.py
 │ ├── test_masks.py
-│ ├── test_widget.py
-│ └── test_generators.py
+│ ├── test_processint.py
+│ └── test_widget.py
+├── .coverage
+├── .flake8
+├── README.md
 ├── main.py
 └── pyproject.toml
 ```
