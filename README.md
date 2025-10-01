@@ -1,5 +1,5 @@
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=BANK+WIDGET)](https://git.io/typing-svg)
 ![иконка_банка](https://img.icons8.com/nolan/96/bank-building.png)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=BANK+WIDGET)](https://git.io/typing-svg)
 
 ---
 ### 📌 Описание
@@ -10,6 +10,7 @@
 bank_widget/
 ├── src/
 │ ├── __init__.py
+│ ├── decorators.py
 │ ├── generators.py
 │ ├── masks.py
 │ ├── processint.py
@@ -17,15 +18,17 @@ bank_widget/
 ├── tests/
 │ ├── __init__.py
 │ ├── conftest.py
+│ ├── test_decorators.py
 │ ├── test_generators.py
 │ ├── test_masks.py
 │ ├── test_processint.py
 │ └── test_widget.py
 ├── .coverage
 ├── .flake8
-├── README.md
 ├── main.py
-└── pyproject.toml
+├── mylog.txt
+├── pyproject.toml
+└── README.md
 ```
 ### ⚙️ Установка и использование
 ```bash
@@ -89,6 +92,15 @@ for number in card_number_generator(1, 4):
 # → 0000 0000 0000 0001
 # → 0000 0000 0000 0002
 # → 0000 0000 0000 0003
+```
+#### Запись логов в консоль
+```python
+@log()
+def divide(a, b):
+    return a / b
+
+divide(1, 0)
+# → В консоль: divide error: ZeroDivisionError. Inputs: (1, 0), {}
 ```
 
 ### 🔗 Полезные ссылки
