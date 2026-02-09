@@ -1,7 +1,9 @@
 """
 Тесты для модуля processing.
 """
+
 import pytest
+
 from src.processing import filter_by_state, sort_by_date
 
 
@@ -12,11 +14,14 @@ def test_filter_by_state_default(sample_operations):
     assert all(op["state"] == "EXECUTED" for op in result)
 
 
-@pytest.mark.parametrize("state, count", [
-    ("EXECUTED", 2),
-    ("CANCELED", 2),
-    ("PENDING", 0),
-])
+@pytest.mark.parametrize(
+    "state, count",
+    [
+        ("EXECUTED", 2),
+        ("CANCELED", 2),
+        ("PENDING", 0),
+    ],
+)
 def test_filter_by_state_parametrize(sample_operations, state, count):
     """Параметризованный тест фильтрации по разным состояниям."""
     result = filter_by_state(sample_operations, state)
