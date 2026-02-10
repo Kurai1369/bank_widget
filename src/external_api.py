@@ -22,17 +22,22 @@ def convert_currency(transaction: dict) -> float:
 
     amount = float(operation_amount["amount"])
     api_key = os.getenv("EXCHANGE_RATES_API_KEY")
-    url = "https://api.apilayer.com/exchangerates_data/latest"
+    url = "https://api.apilayer.com/exchangerates_data/convert"
+
+    params = {"from": currency, "to": "RUB", "amount": amount}
 
     headers = {"apikey": api_key}
-    params = {"base": currency, "symbols": "RUB"}
 
     try:
         response = requests.get(url, headers=headers, params=params)
         response.raise_for_status()
         data = response.json()
-        rate = data["rates"]["RUB"]
-        return float(amount * rate)
+        converted_amount = data.get("result")
+
+        if converted_amount is None:
+            return 0.0
+
+        return float(converted_amount)
 
     except (requests.RequestException, KeyError, ValueError, TypeError):
         return 0.0

@@ -2,7 +2,7 @@
 Тесты для external_api.
 """
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 import requests
@@ -18,11 +18,12 @@ def sample_transaction_usd():
 @patch("src.external_api.requests.get")
 def test_convert_currency_usd_to_rub(mock_get, sample_transaction_usd):
     """Тест конвертации USD → RUB."""
-    mock_get.return_value.json.return_value = {"rates": {"RUB": 90.5}}
-    mock_get.return_value.raise_for_status = MagicMock()
+    mock_response = {"result": 90.5 * 100}  # 100 USD → ~9050 RUB
+    mock_get.return_value.json.return_value = mock_response
+    mock_get.return_value.raise_for_status = lambda: None
 
     result = convert_currency(sample_transaction_usd)
-    assert result == 100.0 * 90.5
+    assert result == 9050.0
 
 
 @patch("src.external_api.requests.get")
