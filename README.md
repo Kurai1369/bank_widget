@@ -8,29 +8,22 @@
 ### 📁 Структура проекта
 ```
 bank_widget/
-├── data/
-│ └── operations.json
 ├── src/
 │ ├── __init__.py
 │ ├── decorators.py
-│ ├── external_api.py
 │ ├── generators.py
 │ ├── masks.py
 │ ├── processint.py
-│ ├── utils.py
 │ └── widget.py
 ├── tests/
 │ ├── __init__.py
 │ ├── conftest.py
 │ ├── test_decorators.py
-│ ├── test_external_api.py
 │ ├── test_generators.py
 │ ├── test_masks.py
 │ ├── test_processint.py
-│ ├── test_utils.py
 │ └── test_widget.py
 ├── .coverage
-├── .env.example
 ├── .flake8
 ├── main.py
 ├── mylog.txt
@@ -44,18 +37,17 @@ cd bank_widget
 poetry install
 ```
 ### ▶️ Запуск программы
-```bash
+```
 python main.py
 ```
 Активируйте окружение (если нужно):
-```bash
+```
 poetry env activate | Invoke-Expression
 ```
-
-### 📚 Документация и ссылки.
+### 📚 Документация
 - [isort](https://pycqa.github.io/isort/) — сортировка импортов
 - [Poetry](https://python-poetry.org/docs/) — управление зависимостями
-### ✅ Лицензия.
+#### 5️⃣ Лицензия.
 Этот проект лицензирован по [MIT © Kurai](https://github.com/ryo-ma/github-profile-trophy/blob/master/LICENSE).
 
 ### 🧪 Тестирование
@@ -64,15 +56,6 @@ poetry env activate | Invoke-Expression
 poetry run pytest
 poetry run pytest --cov=src --cov-report=html
 start htmlcov/index.html
-```
-Просмотр отчета о покрытии
-```bash
-poetry run pytest --cov=src --cov-report=html
-start htmlcov/index.html  # Windows
-```
-```bash
-poetry run pytest --cov=src --cov-report=html
-open htmlcov/index.html   # macOS/Linux
 ```
 
 ### 🚀 Примеры использования
@@ -118,42 +101,6 @@ def divide(a, b):
 
 divide(1, 0)
 # → В консоль: divide error: ZeroDivisionError. Inputs: (1, 0), {}
-```
-
-#### Конвертация валют
-
-Используется [Exchange Rates Data API](https://apilayer.com/exchangerates_data-api).
-
-#### Настройка
-1. Зарегистрируйтесь на [apilayer.com](https://apilayer.com)
-2. Получите API-ключ
-3. Создайте `.env`:
-   ```env
-   EXCHANGE_RATES_API_KEY=ваш_ключ
-```python
-from src.external_api import convert_currency
-
-transaction = {
-    "operationAmount": {
-        "amount": "100.0",
-        "currency": {"code": "USD"}
-    }
-}
-
-rub_amount = convert_currency(transaction)
-print(rub_amount)  # → ~9000.0 (зависит от курса)
-```
-
-
-#### Загрузка транзакций из JSON
-
-Функция `load_transactions_from_json` позволяет загружать транзакции из JSON-файла.
-
-```python
-from src.utils import load_transactions_from_json
-
-transactions = load_transactions_from_json("data/operations.json")
-print(len(transactions))  # → количество транзакций
 ```
 
 ### 🔗 Полезные ссылки
