@@ -21,7 +21,7 @@ operations_data = [
 sorted_descending = sort_by_date(operations_data)
 print(sorted_descending)
 
-sorted_ascending = sort_by_date(operations_data, descending=False)
+sorted_ascending = sort_by_date(operations_data, reverse=False)
 print(sorted_ascending)
 
 # Сортировка по статусу

@@ -25,7 +25,7 @@ def sort_by_date(operations: List[Dict[str, Any]], reverse: bool = True) -> List
 
     Args:
         operations: Список словарей с данными операций.
-        descending: Порядок сортировки.
+        reverse: Порядок сортировки.
                 True - по убыванию (сначала новые),
                 False - по возрастанию (сначала старые).
                 По умолчанию True.
