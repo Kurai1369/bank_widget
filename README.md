@@ -8,6 +8,8 @@
 ### 📁 Структура проекта
 ```
 bank_widget/
+├── data/
+│ └── widget.py
 ├── src/
 │ ├── __init__.py
 │ ├── decorators.py
@@ -36,6 +38,18 @@ git clone git@github.com:Kurai1369/bank_widget.git
 cd bank_widget
 poetry install
 ```
+
+### 💰 Действия для конвертация валют
+
+Используется [Exchange Rates Data API](https://apilayer.com/exchangerates_data-api).
+
+#### Настройка
+1. Зарегистрируйтесь на [apilayer.com](https://apilayer.com)
+2. Получите API-ключ
+3. Создайте `.env`:
+   ```env
+   EXCHANGE_RATES_API_KEY=ваш_ключ
+
 ### ▶️ Запуск программы
 ```
 python main.py
