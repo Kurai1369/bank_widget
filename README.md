@@ -55,6 +55,7 @@ poetry env activate | Invoke-Expression
 ### 📚 Документация и ссылки.
 - [isort](https://pycqa.github.io/isort/) — сортировка импортов
 - [Poetry](https://python-poetry.org/docs/) — управление зависимостями
+
 ### ✅ Лицензия.
 Этот проект лицензирован по [MIT © Kurai](https://github.com/ryo-ma/github-profile-trophy/blob/master/LICENSE).
 
@@ -76,6 +77,7 @@ open htmlcov/index.html   # macOS/Linux
 ```
 
 ### 🚀 Примеры использования
+
 #### Маскировка карты и счёта
 ```python
 from src.widget import mask_account_card
@@ -86,6 +88,7 @@ print(mask_account_card("Visa Platinum 7000792289606361"))
 print(mask_account_card("Счет 73654108430135874305"))
 # → Счет **4305
 ```
+
 #### Преобразование даты
 ```python
 from src.widget import get_date
@@ -93,6 +96,7 @@ from src.widget import get_date
 print(get_date("2024-03-11T02:26:18.671407"))
 # → 11.03.2024
 ```
+
 #### Фильтрация транзакций по валюте
 ```python
 from src.generators import filter_by_currency
@@ -100,6 +104,7 @@ from src.generators import filter_by_currency
 usd_transactions = list(filter_by_currency(transactions, "USD"))
 # Вернёт список всех операций в долларах
 ```
+
 #### Генерация номеров банковских карт
 ```python
 from src.generators import card_number_generator
@@ -110,6 +115,7 @@ for number in card_number_generator(1, 4):
 # → 0000 0000 0000 0002
 # → 0000 0000 0000 0003
 ```
+
 #### Запись логов в консоль
 ```python
 @log()
@@ -144,7 +150,6 @@ rub_amount = convert_currency(transaction)
 print(rub_amount)  # → ~9000.0 (зависит от курса)
 ```
 
-
 #### Загрузка транзакций из JSON
 
 Функция `load_transactions_from_json` позволяет загружать транзакции из JSON-файла.
@@ -154,6 +159,17 @@ from src.utils import load_transactions_from_json
 
 transactions = load_transactions_from_json("data/operations.json")
 print(len(transactions))  # → количество транзакций
+```
+
+#### Чтение данных из CSV и Excel
+
+Новый модуль `data_loaders` позволяет загружать транзакции из разных форматов.
+
+```python
+from src.data_loaders import load_transactions_from_csv, load_transactions_from_excel
+
+csv_transactions = load_transactions_from_csv("data/transactions.csv")
+excel_transactions = load_transactions_from_excel("data/transactions_excel.xlsx")
 ```
 
 ### 🔗 Полезные ссылки
