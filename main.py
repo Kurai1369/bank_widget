@@ -1,4 +1,6 @@
+from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
+from src.utils import load_transactions_from_json
 from src.widget import get_date, mask_account_card
 
 # Тестирование mask_account_card
@@ -30,3 +32,14 @@ print(sorted_executed)
 
 sorted_canceled = filter_by_state(operations_data, "CANCELED")  # CANCELED
 print(sorted_executed)
+
+# Тест маскировки
+try:
+    print(get_mask_card_number(7000792289606361))  # 7000 79** **** 6361
+    print(get_mask_account(73654108430135874305))  # **4305
+except ValueError as e:
+    print(f"Ошибка: {e}")
+
+# Тест загрузки
+transactions = load_transactions_from_json("data/operations.json")
+print(f"Загружено транзакций: {len(transactions)}")
