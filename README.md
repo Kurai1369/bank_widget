@@ -164,12 +164,23 @@ print(len(transactions))  # → количество транзакций
 #### Чтение данных из CSV и Excel
 
 Новый модуль `data_loaders` позволяет загружать транзакции из разных форматов.
-
 ```python
 from src.data_loaders import load_transactions_from_csv, load_transactions_from_excel
 
 csv_transactions = load_transactions_from_csv("data/transactions.csv")
 excel_transactions = load_transactions_from_excel("data/transactions_excel.xlsx")
+```
+
+#### Поиск и фильтрация
+
+Новый модуль `search` позволяет:
+- Искать транзакции по описанию с помощью регулярных выражений
+- Подсчитывать количество транзакций по категориям
+```python
+from src.search import search_transactions_by_description, count_transactions_by_category
+
+found = search_transactions_by_description(transactions, "перевод")
+counts = count_transactions_by_category(transactions, ["вклад", "платёж"])
 ```
 
 ### 🔗 Полезные ссылки
