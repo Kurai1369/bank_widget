@@ -28,7 +28,6 @@ def test_count_transactions_by_category(sample_transactions):
     """Тест подсчёта по категориям."""
     categories = ["перевод", "вклад", "покупки"]
     result = count_transactions_by_category(sample_transactions, categories)
-    print(result)
     assert result["перевод"] == 2
     assert result["вклад"] == 1
     assert result["покупки"] == 1
