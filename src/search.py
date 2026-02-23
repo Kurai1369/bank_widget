@@ -28,22 +28,9 @@ def count_transactions_by_category(transactions: List[Dict[Any, Any]], categorie
     :return: Словарь с количеством транзакций по категориям
     """
     descriptions = [t.get("description", "") for t in transactions]
-    print(f"[DEBUG] Descriptions: {descriptions}")
     counter: Counter[str] = Counter()
-    for i, desc in enumerate(descriptions):
-        for j, cat in enumerate(categories):
-            desc_lower = desc.lower()
-            cat_lower = cat.lower()
-            print(f"  [DEBUG] Desc[{i}] repr: {repr(desc_lower)}, Cat[{j}] repr: {repr(cat_lower)}")
-            # Показать символы по ord()
-            print(f"    [DEBUG] Desc chars: {[ord(c) for c in desc_lower]}")
-            print(f"    [DEBUG] Cat chars: {[ord(c) for c in cat_lower]}")
-            match = cat_lower in desc_lower
-            print(f"    [DEBUG] Match: {match}")
-            if match:
-                print(f"    [DEBUG] Matched! Incrementing counter['{cat}']")
+    for desc in descriptions:
+        for cat in categories:
+            if cat.lower() in desc.lower():
                 counter[cat] += 1
-    print(f"[DEBUG] Final Counter: {counter}")
-    result = {cat: counter.get(cat, 0) for cat in categories}
-    print(f"[DEBUG] Final Result: {result}")
-    return result
+    return {cat: counter.get(cat, 0) for cat in categories}
